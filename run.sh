@@ -1,7 +1,7 @@
-echo "Install the requirement“
+echo "Install the requirement"
 
-pip install requirement.txt
+pip install -r requirement.txt
 
-echo ”analysis the data“
+echo "analysis the data"
 
 python 数据分析.py
