@@ -1,6 +1,6 @@
 echo "Install the requirement"
 
-pip install -r requirement.txt
+pip install -r requirements.txt
 
 echo "analysis the data"
 
