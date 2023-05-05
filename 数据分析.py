@@ -38,13 +38,15 @@ def find_slope_intercept(x, y):
 def linear_func(x, a, b):
     return a * x + b
 
-def plot_graphs(x, y, xlabel, ylabel, title):
+def plot_graphs(x, y, xlabel, ylabel, title, mark):
     plt.plot(x, y, 'o', label='data')
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     plt.title(title)
     plt.legend()
     plt.show()
+    plt.savefig('data'+str(mark)+'.png')
+    plt.clf()
 
 # 整合代码
 input_file = 'data_input.csv'
@@ -73,7 +75,7 @@ for heating_rate_id in heating_rate_ids:
     E = -slope * 8.314
     E_values.append(E)
 
-    plot_graphs(inv_T, ln_phi_dalpha_dT, '1/T', 'ln[ϕ(dα/dT)]', f'ln[ϕ(dα/dT)] vs 1/T for Heating Rate ID {heating_rate_id}')
+    plot_graphs(inv_T, ln_phi_dalpha_dT, '1/T', 'ln[ϕ(dα/dT)]', f'ln[ϕ(dα/dT)] vs 1/T for Heating Rate ID {heating_rate_id}',1)
 
     ln_A_n_alpha = ln_phi_dalpha_dT + E * inv_T
     ln_one_minus_alpha = np.log(1 - alpha)
@@ -85,7 +87,7 @@ for heating_rate_id in heating_rate_ids:
     n_values.append(n)
     A_values.append(A)
 
-    plot_graphs(ln_one_minus_alpha, ln_A_n_alpha, 'ln(1-α)', 'ln[A(1-α)^n]', f'ln[A(1-α)^n] vs ln(1-α) for Heating Rate ID {heating_rate_id}')
+    plot_graphs(ln_one_minus_alpha, ln_A_n_alpha, 'ln(1-α)', 'ln[A(1-α)^n]', f'ln[A(1-α)^n] vs ln(1-α) for Heating Rate ID {heating_rate_id}',2)
 
 print('活化能 E:', np.mean(E_values),'J/mol')
 print('反应级数 n:', np.mean(n_values))
