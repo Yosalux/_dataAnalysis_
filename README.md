@@ -4,3 +4,4 @@
 ``` 
 python 数据分析.py
 ```
+输出的图片在文件栏，文件名是：`data1.png`和'data2.png'。
